@@ -1,11 +1,3 @@
-class node:
-    def __init__(self):
-        self.left = None
-        self.right = None 
-        self.data = None
+from main_game import * 
 
-class graph:
-    def __init__(self):
-        self.head = node()
 
-    
