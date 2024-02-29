@@ -6,7 +6,7 @@ class node:
         self.childrens = []
         self.parent = None 
 
-
+#improve this for multiplayer this generates single state 
 def generate_next_move(current_state): 
     moves = []
     test_state = current_state
@@ -18,8 +18,24 @@ def generate_next_move(current_state):
     return moves
 
 
+
 # 1 is for the player 2 is for the computer 
 
+#this use np array instead of string
+def generate_moves(intial_state):
+    generated = []
+    for i in range(9):
+        if intial_state[i] == 0:
+            new_state = intial_state.copy()
+            new_state[i] = 2
+            generated.append(new_state)
+    return generated 
 
+tester_brd = generate()
+move(1,tester_brd)
+move(2,tester_brd)
+move(3,tester_brd)
+move(4,tester_brd)
+move(8,tester_brd)
+print_board(tester_brd) 
 
-print_baord(state_to_np(generate_next_move("121121120")[0])) 

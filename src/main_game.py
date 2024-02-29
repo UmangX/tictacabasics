@@ -7,7 +7,7 @@ def generate():
     return brd
 
 #prints the np array as a baord 
-def print_baord(brd):
+def print_board(brd):
     for i in range(9): 
         x = i + 1 
         if brd[i] == 0:
@@ -42,7 +42,7 @@ def win_check(brd):
     if (brd[2] == brd[4] == brd[6] != 0):
         return brd[0]; 
     else:
-        return -1 
+        return -1
 
 #generates a string of 8 length which is used for storage state instead of numpy array 
 def get_state(brd):
