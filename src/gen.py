@@ -17,8 +17,6 @@ def generate_next_move(current_state):
             moves.append(new_state)
     return moves
 
-
-
 # 1 is for the player 2 is for the computer 
 
 #this use np array instead of string
