@@ -42,6 +42,9 @@ class game:
             self.brd[9] = 1
             return is_move_left
 
+    def get_next_player(self):
+        return self.brds[9]
+
     def win_check(self):
         brd = self.brd
         if brd[0] == brd[4] == brd[8] != 0:
