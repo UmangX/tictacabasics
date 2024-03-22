@@ -83,7 +83,7 @@ def minmax(state, depth, player):
     return best
 
 
-player = computer
+player = human
 
 
 def clear():
@@ -100,6 +100,12 @@ while True:
         print_state(state)
         print(empty_pos(state))
         time.sleep(1)
+        if win_check(state) == human:
+            print("you won")
+            break
+        if win_check(state) == computer:
+            print("computer won")
+            break
         player = -player
 
     if player == human:
@@ -112,6 +118,12 @@ while True:
         clear()
         print_state(state)
         print(empty_pos(state))
+        if win_check(state) == human:
+            print("you won")
+            break
+        if win_check(state) == computer:
+            print("computer won")
+            break
         player = -player
 
     depth = len(empty_pos(state))
