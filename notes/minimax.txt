@@ -1,0 +1,24 @@
+function minmax(state,depth,player): 
+  
+  if the player == computer: 
+    best_move = [-1,-inf]
+  if the player == human:
+    best_move = [-1,inf]
+  
+  if the depth == 0 or any_player_wins:
+    score = eval(state) - +10 for winning the game -10 for losing the game 0 for the draw
+    return [-1,score]
+  
+  for each_valid_move:
+    
+    x = valid_move 
+
+    state[x] = player's_mark  // this is the new state 
+    score = minmax(new_state,depth-1,-player) 
+    
+    //reset the board
+    state[x] = 0
+    score[0] = x 
+
+    if the_player is computer and score(which is obtained from a terminal state) is greater than -inf
+    

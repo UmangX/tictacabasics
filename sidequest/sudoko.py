@@ -16,22 +16,33 @@ class suduko:
             for j in range(9):
                 self.brd[i][j] = pre_game[i][j]
 
-    def is_avail_row(self, x, tar):
+    def is_avl_row(self, x, tar):
         for i in range(9):
             if self.brd[x][i] == tar:
                 return False
         return True
 
-    def is_avail_col(self, x, tar):
+    def is_avl_col(self, x, tar):
         for i in range(9):
             if self.brd[i][x] == tar:
                 return False
         return True
 
-    def is_aviable(self, x, y, tar):
-        if self.is_avail_col(x, tar) and self.is_avail_row(y, tar):
+    def is_avl(self, x, y, tar):
+        if self.is_avl_col(x, tar) and self.is_avail_row(y, tar):
             return True
         return False
+
+    def check_brd(self):
+        for i in range(9):
+            for j in range(9):
+                data = self.brd[i][j]
+                for x in range(9):
+                    for y in range(9):
+                        if i != x and i != y:
+                            if self.brd[x][y] == data:
+                                return False
+        return True
 
     def play_game(self):
         for x in range(9):
@@ -39,7 +50,7 @@ class suduko:
                 if self.brd[x][y] == 0:
                     for i in range(10):
                         if i != 0:
-                            if self.is_aviable(x, y, i):
+                            if self.is_avl(x, y, i):
                                 self.brd[x][y] = i
 
 
@@ -59,7 +70,4 @@ if __name__ == "__main__":
     play = suduko()
     play.set_game(defaultgrid)
     play.print_brd()
-    print()
-    print("after playing")
-    play.play_game()
-    play.print_brd()
+    print(play.check_brd())
